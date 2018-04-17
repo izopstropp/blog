@@ -1,0 +1,64 @@
+<!-- <carousel>
+    <slide>
+      <img src="../../assets/img/imgft.jpg" alt="First slide" style="display: block; height:200px; width:100%;">
+    </slide>
+    <slide>
+      <img src="../../assets/img/tv.jpg" alt="Second slide" style="display: block;  height:100%;">
+    </slide>
+  </carousel> -->
+
+<div class="jumbotron welcome-jumbotron text-center text-muted">
+       <h1>Bem vindo ao Lipe's Blog</h1>
+       <p>
+         Conhecimento é poder
+       </p>
+</div>
+
+<div class="content-header">
+    <a (click)="togglePesquisa()" class="search-link pull-right"><span *ngIf="itemSearch.value">{{itemSearch.value}}</span><i class="fa fa-search"></i> </a>
+    <div class="row .search-bar">
+      <div class="col-11 search-bar" [@toggleSearch]="searchBarState">
+        <form [formGroup]="searchForm">
+          <div class="form-group">
+            <input type="text" #itemSearch formControlName="searchControl"  placeholder="O que você esta procurando" class="form-control">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+        <div class="col-6">
+          <h3 class="text-muted">Ultimas Postagens</h3>
+        </div>
+        <div  *ngIf = "usuarioLogado" class="col-6 text-right">
+          <button [routerLink]= "['/admin/post/create']" class="btn btn-primary btn-sm">Nova Postagem</button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="card-group">
+    <div class="col-9">
+        <div class="row">
+          <div class="col-4" *ngFor="let post of posts">
+            <bbl-post [usuarioLogado]="usuarioLogado" [post]="post" (excluirPost)="excluirPost($event)"></bbl-post>
+          </div>
+      </div>
+    </div>
+    <div class="col-3 ">
+      <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Olá</h4>
+              <p class="card-text"> Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Viva Forevis aptent taciti sociosqu ad litora torquent. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus.
+
+                Atirei o pau no gatis, per gatis num morreus. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Aenean aliquam molestie leo, vitae iaculis nisl. Copo furadis é disculpa de bebadis, arcu quam euismod magna.</p>
+              <p class="card-text text-muted"> há 2 dias </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

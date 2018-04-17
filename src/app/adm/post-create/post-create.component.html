@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-10  mx-auto mt-5">
+    <div class="card card-login">
+        <!-- TEMPLATE FORM
+      Geral: {{postForm.valid}}<br>
+      titulo  {{postForm.value.titulo}}<br>
+      Descrição  {{postForm.value.descricao}}<br>
+      radio  {{postForm.value.situacao}}<br> -->
+      <div class="card-header bg-muted">
+        <h3>Post</h3>
+      </div>
+      <div class="card-group">
+        <div class="card-body">
+          <form [formGroup]="postForm">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-7">
+                    <label>Titulo</label>
+                    <bbl-input  mensagem ="minimo 5 caracteres" label="Titulo">
+                        <input class="form-control" type="text" value ="postForm.value.titulo" formControlName="titulo" id="titulo" placeholder="titulo">
+                    </bbl-input>
+                </div>
+                <div class="col-5">
+                  <div class="form-row">
+                      <label>Situação</label>
+                  </div>
+                    <div class="form-group radio">
+                      <label class="center-block"><input type="radio" formControlName="situacao" value="A">Ativo</label>
+                      <label class="center-block"><input type="radio" formControlName="situacao" value="I">Inativo</label>
+                    </div>
+                </div>
+              </div>
+              <div class="mt-5">
+                <label form="descricao">Descrição</label>
+                <div [froalaEditor] formControlName="descricao"></div>
+              </div>
+              <button (click)="salvarPost(postForm.value)" type="button" class="btn btn-large btn-primary mt-4 float-left">Publicar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

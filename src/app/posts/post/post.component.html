@@ -1,0 +1,23 @@
+<div class="card card h-100 border-primary mt-3">
+
+        <a class="ger-desc-fer fa fa-cog mt-3" (click)="gerenciamentoPost()" *ngIf="usuarioLogado"></a>
+        <div class="ger-desc-padding" [@gerenciamentoPost]="gerenciamentoPostState">
+          <ul class="list-inline" *ngIf="usuarioLogado">
+              <li class="list-inline-item btn btn-muted"><span class="social-icon text-xs-center" [routerLink]="['/admin/post/edit',post.id]" >Editar</span></li>
+              <li class="list-inline-item btn btn-muted"><span class="social-icon text-xs-center"  (click)="emitExcluiPostEvent()" >Excluir</span></li>
+          </ul>
+        </div>
+
+    <div class="card-body">
+      <h4 class="card-title">{{post.titulo}}</h4>
+      <p class="card-text "[innerHTML]="post?.descricao"></p>
+      <div class="row">
+        <div class="col-6">
+          <p class="card-text text-muted"> há 2 dias </p>
+        </div>
+        <div class="col-6 text-right">
+          <a [routerLink]="['/post', post.id]"><p class="card-text"> Saiba mais ...</p></a>
+        </div>
+      </div>
+    </div>
+</div>

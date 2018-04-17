@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-4  mx-auto mt-5">
+    <div class="card card-login">
+        <!-- TEMPLATE FORM
+       Geral: {{loginForm.valid}}<br>
+       email  {{loginForm.value.email}}<br>
+       senha  {{loginForm.value.senha}}<br> -->
+      <div class="card-header">
+        Login
+      </div>
+      <div class="card-group">
+          <div class="card-body">
+            <form [formGroup]="loginForm">
+              <div class="form-group">
+                <label form="email">Email</label>
+                <input class="form-control" type="email" formControlName="email" id="email" placeholder="digite seu email">
+                <label form="senha">Senha</label>
+                <input class="form-control" type="password" formControlName="senha" id="senha" placeholder="digite sua senha">
+                <button (click)="logar(loginForm.value)" [disabled] ="!loginForm.valid" type="button" class="btn btn-primary mt-4 float-right">Entrar</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
